@@ -6,8 +6,6 @@ BEGIN
 	INSERT INTO @Result(StudentFirstName, StudentLastName, Grade, CreatedDate)
 	SELECT s.FirstName as StudentFirstName, s.LastName as StudentLastName, g.Grade as Grade, g.CreatedDate as CreatedDate
 	FROM dbo.Grade g
-	INNER JOIN dbo.Teacher t on t.ID = g.TeacherID
-	INNER JOIN dbo.Course c on c.ID = g.CourseID
 	INNER JOIN dbo.Student s on s.ID = g.StudentID
 	WHERE g.TeacherID = @Teacher AND g.CourseID = @Course
 	GROUP BY s.FirstName, s.LastName, g.Grade, g.CreatedDate
@@ -22,3 +20,5 @@ SELECT *
 FROM dbo.StudentListPassedExam(3,3)
 
 GO
+
+DROP FUNCTION IF EXISTs dbo.StudentListPassedExam
