@@ -7,7 +7,11 @@ FROM dbo.Grade
 SELECT DISTINCT t.FirstName + N' ' + t.LastName as Teacher, COUNT(*) as GradesPerTeacher
 FROM dbo.Grade g
 INNER JOIN dbo.Teacher t on t.ID = g.TeacherID
+<<<<<<< HEAD
 GROUP BY t.FirstName , t.LastName
+=======
+GROUP BY t.FirstName + N' ' + t.LastName
+>>>>>>> b66069dca13b7cfbc55c7bf31319e03c31ab9e41
 
 
 --Calculate the count of all grades per Teacher in the system for first 100 Students (ID < 100)​
@@ -15,21 +19,33 @@ SELECT DISTINCT  t.FirstName + N' ' + t.LastName as Teacher, COUNT(*) as GradesP
 FROM dbo.Grade g
 INNER JOIN dbo.Teacher t on t.ID = g.TeacherID
 WHERE g.StudentID < 100
+<<<<<<< HEAD
 GROUP BY t.FirstName , t.LastName
+=======
+GROUP BY t.FirstName + N' ' + t.LastName
+>>>>>>> b66069dca13b7cfbc55c7bf31319e03c31ab9e41
 
 
 --Find the Maximal Grade, and the Average Grade per Student on all grades in the system​
 SELECT DISTINCT s.FirstName + N' ' + s.LastName as Student, MAX(g.Grade) as GradeMax, AVG(g.Grade) as GradeAvg
 FROM dbo.Grade g
 INNER JOIN dbo.Student s on s.ID = g.StudentID
+<<<<<<< HEAD
 GROUP BY s.FirstName , s.LastName
+=======
+GROUP BY s.FirstName + N' ' + s.LastName
+>>>>>>> b66069dca13b7cfbc55c7bf31319e03c31ab9e41
 
 
 --Calculate the count of all grades per Teacher in the system and filter only grade count greater then 200​
 SELECT DISTINCT  t.FirstName + N' ' + t.LastName as Teacher, COUNT(*) as GradesPerTeacher
 FROM dbo.Grade g
 INNER JOIN dbo.Teacher t on t.ID = g.TeacherID
+<<<<<<< HEAD
 GROUP BY t.FirstName , t.LastName
+=======
+GROUP BY t.FirstName + N' ' + t.LastName
+>>>>>>> b66069dca13b7cfbc55c7bf31319e03c31ab9e41
 HAVING COUNT(*) > 200
 
 
@@ -38,7 +54,11 @@ SELECT DISTINCT  t.FirstName + N' ' + t.LastName as Teacher, COUNT(*) as GradesP
 FROM dbo.Grade g
 INNER JOIN dbo.Teacher t on t.ID = g.TeacherID
 WHERE g.StudentID < 100
+<<<<<<< HEAD
 GROUP BY t.FirstName , t.LastName
+=======
+GROUP BY t.FirstName + N' ' + t.LastName
+>>>>>>> b66069dca13b7cfbc55c7bf31319e03c31ab9e41
 HAVING COUNT(*) > 50
 
 
@@ -46,7 +66,11 @@ HAVING COUNT(*) > 50
 SELECT DISTINCT s.FirstName + N' ' + s.LastName as Student,COUNT(*) as GradeCount, MAX(g.Grade) as GradeMax, AVG(g.Grade) as GradeAvg
 FROM dbo.Grade g
 INNER JOIN dbo.Student s on s.ID = g.StudentID
+<<<<<<< HEAD
 GROUP BY s.FirstName , s.LastName
+=======
+GROUP BY s.FirstName + N' ' + s.LastName
+>>>>>>> b66069dca13b7cfbc55c7bf31319e03c31ab9e41
 HAVING MAX(g.Grade) = AVG(g.Grade)
 
 --List Student First Name and Last Name next to the other details from previous query​
