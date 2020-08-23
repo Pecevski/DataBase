@@ -36,6 +36,9 @@ BEGIN
 
 END
 
+-- Napomena : AcievementTypeId ne moze da bide 1 - Seminarska, 2 - Redovnost, bidejki nema poeni i GradePointSum ke bide 0
+-- AcievementTypeId ima soodvetno Id i dava rezultat
+EXEC dbo.CreateGradeDetail 1, 3, 55, 100, '2020-05-15'
 
 --Test the error handling by inserting not-existing values for AchievementTypeID
 EXEC dbo.CreateGradeDetail @GradeID = 1, @AchievementTypeID = 13, @AchievementPoints = 55, @AchievementMaxPoints = 100, @AchievementDate = '2020-05-15'
